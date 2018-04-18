@@ -4,8 +4,9 @@ using namespace std;
 int main(){
 	
 	char fndwrds[17];
-	int jumlahkata;
-	int x;
+	int jumlahkata,nf;
+	int x,z=0;
+	int j,k,l;
 	char word[17][17] =	{{'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n',},
 						{'a','a','u','n','t','t','m','m','h','f','o','o','d','n','b',},
 						{'j','l','w','c','q','l','d','z','m','p','m','v','d','m','r',},
@@ -30,45 +31,31 @@ int main(){
 		cout<<endl;
 	}
 	
-	for(int i=0;i<=19;i++){
-		jumlahkata=0;
-		cout<<endl<<" Masukkan Kata Yang Akan Dicari Pada Program Find Words : ";
-		cin.getline(fndwrds,sizeof(fndwrds));
+	cout<<endl<<" Masukkan Kata Yang Akan Dicari Pada Program Find Words : ";
+		cin.getline(fndwrds,17);
+		nf=strlen(fndwrds);
 		
-		for(int x=0;fndwrds[x];x++){
-			jumlahkata=jumlahkata+1;
-		}
-		for(int j=0;j<=16;j++){
-			for(int k=0;k<=16;k++){
-				if (fndwrds[0]==word[j][k]){
-					for(int l=0;l<=jumlahkata;l++){
-						if(fndwrds[l+1]==word[j][k+1]){
-							if(l==jumlahkata){
-								cout<<"Ada"<<endl;
-								break;
-							}
-						}else{
-							cout<<"Tidak Ada"<<endl;
-							break;
-						}
-					}
+		for(j=0;j<=16;j++){
+			for(k=0;k<=16;k++){
+				for(l=0;l<=nf;l++){
+				
+				if (fndwrds[l]==word[j][k]){
+			
+				}else{
+					break;	
 				}
+				if (l==nf){
+					break;
+				}
+				}
+			
 			}
 		}
-	}
-
-	/*for (int h=1;h<=19;h++){
-		jumlahkata=0;
-		cout<<endl<<" Masukkan Kata Yang Akan Dicari = ";
-		cin.getline(fndwrds,sizeof(fndwrds));
-	
-		for(int x=0;fndwrds[x];x++){
-			jumlahkata=jumlahkata+1;
-		}
-		cout<<jumlahkata;
-		for(int i=0;i<=jumlahkata;i++){
-			cout<<fndwrds[i];
-		}
-	}*/
+	cout<<l<<"    "<<nf;
+	/*if(z == nf+1){
+		cout<<"ada";
+	}else
+		cout<<"Tidak Ada";
+*/		
 	 return 0;
 }
