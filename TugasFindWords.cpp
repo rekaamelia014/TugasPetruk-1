@@ -3,11 +3,9 @@
 using namespace std;
 int main(){
 	
-	char fndwrds[17];
-	int jumlahkata,nf;
-	int x,z=0;
-	int j,k,l;
-	char word[17][17] =	{{'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n',},
+	char fndwrds[15];
+	int j,k,l,nf;
+	char word[15][15] =	{{'t','g','b','w','w','i','n','t','e','r','w','s','e','s','n',},
 						{'a','a','u','n','t','t','m','m','h','f','o','o','d','n','b',},
 						{'j','l','w','c','q','l','d','z','m','p','m','v','d','m','r',},
 						{'a','s','a','g','m','q','u','w','v','v','b','s','o','h','i',},
@@ -21,41 +19,48 @@ int main(){
 						{'l','q','z','q','n','n','m','r','z','j','j','s','c','l','g',},
 						{'m','o','s','g','z','c','z','d','t','d','b','o','o','t','o',},
 						{'p','d','c','r','z','m','s','n','g','r','d','n','r','p','z',},
-						{'o','h','n','k','z','w','a','t','e','r','j','g','t','r','a','\0'}};
+						{'o','h','n','k','z','w','a','t','e','r','j','g','t','r','a',}};
 				
 				cout<<endl<<endl;		
-	for (int i=0;i<=16;i++){
-		for (int j=0;j<=16;j++){
+				
+				
+		
+	for (int i=0;i<=14;i++){
+		for (j=0;j<=14;j++){
 			cout<<" "<<word[i][j];
 		}
 		cout<<endl;
 	}
 	
 	cout<<endl<<" Masukkan Kata Yang Akan Dicari Pada Program Find Words : ";
-		cin.getline(fndwrds,17);
+		cin>>fndwrds;
 		nf=strlen(fndwrds);
-		
-		for(j=0;j<=16;j++){
-			for(k=0;k<=16;k++){
-				for(l=0;l<=nf;l++){
-				
-				if (fndwrds[l]==word[j][k]){
-			
+		nf=nf-1;
+		l=0;
+		for(j=0;j<=14;j++){
+			for(k=0;k<=14;k++){
+				if (fndwrds[l]==word[j][k])	{
+					l++;
 				}else{
-					break;	
+					if(word[j][k]==word[j][k-1]){
+						
+					}else{
+						l=0;
+					}
 				}
-				if (l==nf){
-					break;
+				if(l==nf){
+					goto selesaifor;
 				}
-				}
-			
+				
+										}
+										}
+		selesaifor:;
+			if(l==nf){
+				cout<<" Ada ";
+			}else{
+				cout<<" Tidak Ada ";
 			}
-		}
 	cout<<l<<"    "<<nf;
-	/*if(z == nf+1){
-		cout<<"ada";
-	}else
-		cout<<"Tidak Ada";
-*/		
+
 	 return 0;
 }
